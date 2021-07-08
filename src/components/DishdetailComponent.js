@@ -11,15 +11,15 @@ class DishDetail extends Component{
         };
     }
 
-    renderDish(dish) {
-        if (dish != null) {
+    renderDish(dishe) {
+        if (dishe != null) {
             return (
                 <div className='col-12 col-md-5 m-1'>
                     <Card>
-                        <CardImg width="100%" src={dish.image} alt={dish.name} />
+                        <CardImg width="100%" src={dishe.image} alt={dishe.name} />
                         <CardBody>
-                            <CardTitle> {dish.name}</CardTitle>
-                            <CardText> {dish.description} </CardText>
+                            <CardTitle> {dishe.name}</CardTitle>
+                            <CardText> {dishe.description} </CardText>
                         </CardBody>
                     </Card>
                 </div>   
@@ -73,10 +73,11 @@ class DishDetail extends Component{
         const dishComment = this.renderComments(dish.comments);
 
         return (
+            <div ClassName='container'>
             <div className='row'>
                 {dishItem}
                 {dishComment}
-            </div>
+            </div></div>
         )
     }
 }
