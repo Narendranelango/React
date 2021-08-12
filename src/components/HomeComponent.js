@@ -1,9 +1,7 @@
 import React from 'react';
-import { Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle} from 'reactstrap';
 
-function RenderCard({item}) {
-
+function RenderCard({item}) {//{item containc props.dish}
     return(
         <Card>
             <CardImg src={item.image} alt={item.name} />
@@ -14,7 +12,6 @@ function RenderCard({item}) {
             </CardBody>
         </Card>
     );
-
 }
 
 function Home(props) {

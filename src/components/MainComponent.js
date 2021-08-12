@@ -8,7 +8,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Contact from './ContactComponent'
 import { DISHES } from '../shared/dishes';
-
+import About from './AboutComponent';
 import { COMMENTS } from '../shared/comments';
 import { PROMOTIONS } from '../shared/promotions';
 import { LEADERS } from '../shared/leaders';
@@ -19,10 +19,11 @@ class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      
       dishes: DISHES,
       comments: COMMENTS,
       promotions: PROMOTIONS,
-      leaders: LEADERS
+      leaders: LEADERS,
     };
   }
 
@@ -32,7 +33,7 @@ class Main extends Component {
 
   render() {
 
-
+    //MainComponent->HomeComponent
     const HomePage = () => {
       return(
           <Home 
@@ -50,14 +51,24 @@ class Main extends Component {
       );
     };
 
+    const AboutUs = () => {
+      return(
+          <About 
+              leaders={this.state.leaders}
+          />
+      );
+  };
+
     return(
       <div>
           <Header/>
           <Switch>{/*To Switch Between Two Routes */}
               <Route path='/home' component={HomePage} />
+              
               <Route path='/menu/:dishId' component={DishWithId} />
               <Route exact path='/menu' component={() => <Menu dishes={this.state.dishes} />} />
               <Route exact path='/contactus' component={Contact}/>
+              <Route exact path="/aboutus" component={AboutUs} />
               <Redirect to="/home" />
           </Switch>
           <Footer/>
