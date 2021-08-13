@@ -16,7 +16,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
                 }   
 
                 render(){ 
-                    {/**For the purpose of validation */}       
+                    {/**For the purpose of validation    */}       
                     const required = (val) => val && val.length;
                     const maxLength = (len) => (val) => !(val) || (val.length <= len);
                     const minLength = (len) => (val) => val && (val.length >= len);
