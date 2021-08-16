@@ -6,6 +6,7 @@ import {
 } from "reactstrap";
 
 import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Loading } from './LoadingComponent';
 
 
 
@@ -28,8 +29,11 @@ class CommentForm extends Component {//ControlForm given as <> in return of rend
 
         this.toggleCommentFormModal = this.toggleCommentFormModal.bind(this);
         this.handleCommentFormSubmit = this.handleCommentFormSubmit.bind(this);
+        
 
     }
+
+    
 
     handleCommentFormSubmit(values) {
         console.log("Current State is: " + JSON.stringify(values));
@@ -225,6 +229,26 @@ function RenderComments({comments}){
 
     
     const DishDetail=(props)=>{
+                  
+        if (props.isLoading) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <Loading />
+                    </div>
+                </div>
+            );
+        }
+        else if (props.errMess) {
+            return(
+                <div className="container">
+                    <div className="row">            
+                        <h4>{props.errMess}</h4>
+                    </div>
+                </div>
+            );
+        }
+        else if (props.dish != null) 
     return (
         <div className="container">
         <div className="row">
